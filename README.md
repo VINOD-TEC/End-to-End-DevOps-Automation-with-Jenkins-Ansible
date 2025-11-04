@@ -6,6 +6,11 @@ Deliverables:
   2. Playbook for app deployment
   3. Continuous delivery demo
 
+# Architecutre Diagram
+
+<img width="1128" height="467" alt="image" src="https://github.com/user-attachments/assets/5952db27-1bf3-4b00-a30d-186dd7e1d6b3" />
+
+
 🚀 Quick Start
   1.  Deploy Two EC2 Instances (Ubuntu) one for Jenkins, Docker, and Ansible.
   2.  One for Production Server
@@ -13,6 +18,8 @@ Deliverables:
 Instances:
   1. t2.medium for jenkins, docker, Ansible.
   2. t2.micro for Prod server
+
+<img width="1916" height="364" alt="image" src="https://github.com/user-attachments/assets/6aa8a9ae-b323-41b4-92bb-345d6a40b048" />
 
 # Install Jenkins
    	sudo apt update
@@ -40,13 +47,18 @@ Instances:
  	sudo apt-get update -y
  	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
+# After the Installation is done start and enable the services
+    systemctl start docker
+    systemctl start Jenkins
+    systemctl start ansible
+    systemctl enable docker
+    systemctl enable jenkins
+ 
 # Install Ansible
    	sudo apt update
  	  sudo apt install software-properties-common
  	  sudo add-apt-repository --yes --update ppa:ansible/ansible
  	  sudo apt install ansible -y
-
-<img width="1916" height="364" alt="image" src="https://github.com/user-attachments/assets/6aa8a9ae-b323-41b4-92bb-345d6a40b048" />
 
 <img width="1829" height="649" alt="image" src="https://github.com/user-attachments/assets/8debc089-1718-41cc-8f5f-53d10e39cae0" />
 
@@ -77,15 +89,42 @@ Instances:
 <img width="1886" height="834" alt="image" src="https://github.com/user-attachments/assets/3abd062f-30cb-4f5e-bcd0-0cd6bbf4c8a1" />
 
 # Setting up webhooks
+    Click on settings on github repo
 
+<img width="1408" height="680" alt="image" src="https://github.com/user-attachments/assets/b08c64f0-61c5-48e3-ab41-80a811dd5207" />
 
+    Select Webhook and add webhook
+    
+  <img width="1232" height="763" alt="image" src="https://github.com/user-attachments/assets/d4a2e72f-5b91-4c5f-a124-ac3cace582af" />
 
+  <img width="864" height="199" alt="image" src="https://github.com/user-attachments/assets/3cce5b84-53fe-496f-afd4-8828ae2e0cd1" />
 
-
+  # 🔁 Setup GitHub Webhook
+    Go to your GitHub repository Settings → Webhooks
+    Add a new webhook pointing to your Jenkins URL
   
+  # 🔄 CI/CD Flow
+    Once a commit is pushed to GitHub:
+      The webhook triggers Jenkins
+      Jenkins builds the app with Maven
+      Docker image is built and pushed to DockerHub
+      Ansible deploys the container to the production server
+
+# ✅ Output
+# 🖥️ Application Running on Production Server
+  <img width="1316" height="200" alt="image" src="https://github.com/user-attachments/assets/dfee3eb2-3c49-4996-b284-44191d983d9a" />
+
+  # Docker images
+
+  <img width="1242" height="205" alt="image" src="https://github.com/user-attachments/assets/833ec15b-6ed7-4089-8e88-3eb844952994" />
+
+# DockerHub Upload
+  <img width="1907" height="497" alt="image" src="https://github.com/user-attachments/assets/600cccec-704a-4893-ac8c-359c0d97e0ca" />
   
+# 🎯 Summary
 
+    This project demonstrates a complete CI/CD pipeline using Jenkins, Docker, and Ansible — enabling automated build, deployment, 
+    and delivery with minimal manual intervention.
 
-
-
-
+# Author: [Irshed Ahmed S]
+    GitHub: [https://github.com/irshadahmed03/End-to-End-DevOps-Automation-with-Jenkins-Ansible.git]
