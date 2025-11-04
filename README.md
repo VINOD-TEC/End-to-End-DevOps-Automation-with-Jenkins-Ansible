@@ -99,6 +99,10 @@ Instances:
 
   <img width="864" height="199" alt="image" src="https://github.com/user-attachments/assets/3cce5b84-53fe-496f-afd4-8828ae2e0cd1" />
 
+  # Create a Ansible Playbook and Inventory file in the github repo
+      deploy-docker.yml
+      dev.inv
+
   # 🔁 Setup GitHub Webhook
     Go to your GitHub repository Settings → Webhooks
     Add a new webhook pointing to your Jenkins URL
