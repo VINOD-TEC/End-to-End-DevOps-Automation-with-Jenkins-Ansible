@@ -76,6 +76,8 @@ Instances:
 # Create a Job and write a pipeline
 <img width="1886" height="834" alt="image" src="https://github.com/user-attachments/assets/3abd062f-30cb-4f5e-bcd0-0cd6bbf4c8a1" />
 
+# Setting up webhooks
+
 
 
 
