@@ -74,6 +74,10 @@ Instances:
 <img width="1592" height="552" alt="image" src="https://github.com/user-attachments/assets/a31eb774-dc3e-441d-9a7d-003bf6114ad3" />
 
 # Create a Job and write a pipeline
+<img width="1886" height="834" alt="image" src="https://github.com/user-attachments/assets/3abd062f-30cb-4f5e-bcd0-0cd6bbf4c8a1" />
+
+
+
 
 
   
