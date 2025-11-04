@@ -1,13 +1,12 @@
 ---
 - hosts: dev
   become: true
-
   tasks:
     - name: Update apt cache
       apt:
         update_cache: yes
 
-    - name: Install Docker prerequisites
+    - name: Install dependencies for Docker
       apt:
         name:
           - apt-transport-https
@@ -27,7 +26,7 @@
         state: present
         filename: docker
 
-    - name: Update apt cache again
+    - name: Update apt cache after adding Docker repo
       apt:
         update_cache: yes
 
@@ -36,7 +35,7 @@
         name: docker-ce
         state: present
 
-    - name: Ensure Docker service is running
+    - name: Ensure Docker service is started and enabled
       service:
         name: docker
         state: started
@@ -53,21 +52,10 @@
         executable: pip3
         extra_args: --break-system-packages
 
-    - name: Remove old container if exists
+    - name: Start the container
       docker_container:
-        name: demoapp
-        state: absent
-
-    - name: Pull the latest image
-      docker_image:
-        name: "shiakahmed53/demoapp:{{ DOCKER_TAG }}"
-        source: pull
-
-    - name: Start the new container
-      docker_container:
-        name: demoappc1
-        image: "shiakahmed53/demoapp:{{ DOCKER_TAG }}"
+        name: ansibleappc1
+        image: "shiakahmed53/App-ansible:latest"
         state: started
-        restart_policy: always
         published_ports:
           - "0.0.0.0:8080:8080"
