@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                git branch: 'main', credentialsId: 'github', url: 'https://github.com/irshadahmed03/End-to-End-DevOps-Automation-with-Jenkins-Ansible.git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/VINOD-TEC/End-to-End-DevOps-Automation-with-Jenkins-Ansible.git'
             }
         }
 
@@ -21,16 +21,16 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build . -t shiakahmed53/appansible:latest'
+                sh 'docker build . -t vinodpa/appansible:latest'
             }
         }
 
         stage('DockerHub Push') {
             steps {
                 withCredentials([string(credentialsId: 'docker-hub', variable: 'DockerHubPwd')]) {
-                    sh 'docker login -u shiakahmed53 -p $DockerHubPwd'
+                    sh 'docker login -u vinodpa -p $DockerHubPwd'
                 }
-                sh 'docker push shiakahmed53/appansible:latest'
+                sh 'docker push vinodpa/appansible:latest'
             }
         }
 
